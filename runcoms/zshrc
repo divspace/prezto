@@ -11,3 +11,123 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+rpath=(/usr/local/share/zsh-completions $fpath)
+
+# If a command is issued that can't be executed as a normal command, and the
+# command is the name of a directory, perform the cd command to that directory.
+setopt AUTO_CD
+
+# Any parameter that is set to the absolute name of a directory immediately
+# becomes a name for that directory, that will be used by the `%~` and related
+# prompt sequences, and will be available when completion is performed on a word
+# starting with `~`
+setopt AUTO_NAME_DIRS
+
+# When the current word has a glob pattern, do not insert all the words
+# resulting from the expansion but generate matches as for completion and cycle
+# through them like `MENU_COMPLETE`
+setopt GLOB_COMPLETE
+
+# Exchanges the meanings of `+` and `-` when used with a number to specify a
+# directory in the stack
+setopt PUSHD_MINUS
+
+# Don't push multiple copies of the same directory onto the directory stack
+setopt PUSHD_IGNORE_DUPS
+
+# Use the zsh line editor
+setopt ZLE
+
+# Keep background jobs running when the shell exits
+setopt NO_HUP
+
+# Do not exit on end-of-file
+setopt IGNORE_EOF
+
+# If numeric filenames are matched by a filename generation pattern, sort the
+# filenames numerically rather than lexicographically
+setopt NUMERIC_GLOB_SORT
+
+# Treat the `#`, `~`, and `^` characters as part of patterns for filename
+# generation, etc.
+setopt EXTENDED_GLOB
+
+# Array expansions of the form `foo${xx}bar`, where the parameter xx is set to
+# (a b c), are substituted with `fooabar foobbar foocbar` instead of the default
+# `fooa b cbar`
+setopt RC_EXPAND_PARAM
+
+bindkey "\e[1~" beginning-of-line
+bindkey "\e[4~" end-of-line
+
+# Exports...
+export PATH="$HOME/.composer/vendor/bin:$(brew --prefix homebrew/core/php@8.1)/bin:$PATH"
+
+# https://cs.symfony.com/doc/usage.html#environment-options
+export PHP_CS_FIXER_IGNORE_ENV=1
+
+# https://github.com/puppeteer/puppeteer#environment-variables
+export PUPPETEER_EXECUTABLE_PATH="/opt/homebrew/bin/chromium"
+export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1
+
+# Aliases...
+alias c="clear"
+alias ll="ls -lGh"
+alias lll="ls -alGh"
+alias watch="watch --color --interval 1"
+
+# Docker...
+alias dc="docker compose"
+alias dcb="docker compose build"
+alias dcd="docker compose down"
+alias dce="docker compose exec"
+alias dcps="docker compose ps"
+alias dcr="docker compose down && docker compose build && docker compose up -d"
+alias dcu="docker compose up -d"
+alias dps="docker ps --format 'table {{.Names}}\t{{.Ports}}\t{{.Status}}'"
+
+# Git...
+alias undo="git reset HEAD~"
+alias wip="git commit -m 'wip'"
+
+# Homebrew...
+alias update="brew upgrade --quiet; brew cleanup --quiet; brew doctor --quiet; brew outdated --greedy --quiet"
+
+# Laravel...
+alias art="php artisan"
+alias artisan="php artisan"
+alias migrate="php artisan migrate"
+alias sail="vendor/bin/sail"
+alias seed="php artisan db:seed"
+alias serve="php artisan serve"
+alias tinker="php artisan tinker"
+
+# PHP...
+alias php74="/opt/homebrew/Cellar/php@7.4/*/bin/php"
+alias php80="/opt/homebrew/Cellar/php@8.0/*/bin/php"
+alias php81="/opt/homebrew/Cellar/php@8.1/*/bin/php"
+
+# Thunder...
+alias thunder='function __thunder() { (cd $HOME/.thunder && php thunder $*); unset -f __thunder; }; __thunder'
+
+# Functions...
+fixAllPermissions() {
+  find . -type f -exec chmod 644 {} \;
+  find . -type d -exec chmod 755 {} \;
+}
+
+fixDirectoryPermissions() {
+  find . -type d -exec chmod 755 {} \;
+}
+
+fixFilePermissions() {
+  find . -type f -exec chmod 644 {} \;
+}
+
+removeNewline() {
+  perl -pi -e "chomp if eof" $@
+}
+
+stash() {
+  git stash push --include-untracked -m "wip"
+}
