@@ -124,9 +124,6 @@ alias php74="/opt/homebrew/Cellar/php@7.4/*/bin/php"
 alias php80="/opt/homebrew/Cellar/php@8.0/*/bin/php"
 alias php81="/opt/homebrew/Cellar/php@8.1/*/bin/php"
 
-# Thunder...
-alias thunder='function __thunder() { (cd $HOME/.thunder && php thunder $*); unset -f __thunder; }; __thunder'
-
 # Functions...
 fixAllPermissions() {
   find . -type f -exec chmod 644 {} \;
