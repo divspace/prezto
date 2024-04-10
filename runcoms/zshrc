@@ -61,7 +61,7 @@ bindkey "\e[1~" beginning-of-line
 bindkey "\e[4~" end-of-line
 
 # Exports...
-export PATH="$HOME/.composer/vendor/bin:$(brew --prefix homebrew/core/php@8.3)/bin:$PATH"
+export PATH="$HOME/.composer/vendor/bin:$(brew --prefix homebrew/core/php@8.3)/bin:$(brew --prefix homebrew/core/mysql-client)/bin:$PATH"
 
 # https://cs.symfony.com/doc/usage.html#environment-options
 export PHP_CS_FIXER_IGNORE_ENV=1
