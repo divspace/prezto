@@ -104,7 +104,7 @@ alias dce="docker compose exec"
 alias dcps="docker compose ps"
 alias dcr="docker compose down && docker compose build && docker compose up -d"
 alias dcu="docker compose up -d"
-alias dps="docker ps --format 'table {{.Names}}\t{{.Ports}}\t{{.Status}}'"
+alias dps="docker ps --format 'table {{.Names}}\t{{.Status}}'"
 
 # Git...
 alias undo="git reset HEAD~"
