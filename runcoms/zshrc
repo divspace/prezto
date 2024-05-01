@@ -122,11 +122,6 @@ alias seed="php artisan db:seed"
 alias serve="php artisan serve"
 alias tinker="php artisan tinker"
 
-# PHP...
-alias php74="/opt/homebrew/Cellar/php@7.4/*/bin/php"
-alias php80="/opt/homebrew/Cellar/php@8.0/*/bin/php"
-alias php81="/opt/homebrew/Cellar/php@8.1/*/bin/php"
-
 # Functions...
 composer-link() {
     composer config repositories.local '{"type": "path", "url": "'$1'"}' --file composer.json
