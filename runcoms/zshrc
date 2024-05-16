@@ -111,7 +111,7 @@ alias undo="git reset HEAD~"
 alias wip="git commit -m 'wip'"
 
 # Homebrew...
-alias update="brew upgrade --quiet; brew cleanup --quiet; brew doctor --quiet; brew outdated --greedy --quiet"
+alias update="brew upgrade --quiet; brew cleanup --quiet; brew doctor --quiet; brew outdated --greedy --quiet | grep -v tableplus"
 
 # Laravel...
 alias art="php artisan"
