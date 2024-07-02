@@ -140,6 +140,10 @@ fixFilePermissions() {
   find . -type f -exec chmod 644 {} \;
 }
 
+pint() {
+  $([ -f "vendor/bin/pint" ] && echo "vendor/bin/pint" || echo "pint") --preset laravel $@
+}
+
 removeNewline() {
   perl -pi -e "chomp if eof" $@
 }
