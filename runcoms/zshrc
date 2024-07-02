@@ -124,7 +124,7 @@ alias tinker="php artisan tinker"
 
 # Functions...
 composer-link() {
-    composer config repositories.local '{"type": "path", "url": "'$1'"}' --file composer.json
+  composer config repositories.local '{"type": "path", "url": "'$1'"}' --file composer.json
 }
 
 fixAllPermissions() {
