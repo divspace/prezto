@@ -61,7 +61,7 @@ bindkey "\e[1~" beginning-of-line
 bindkey "\e[4~" end-of-line
 
 # Exports...
-export PATH="$HOME/.composer/vendor/bin:$(brew --prefix homebrew/core/php@8.3)/bin:$(brew --prefix homebrew/core/mysql-client)/bin:$PATH"
+export PATH="$HOME/.composer/vendor/bin:$(brew --prefix homebrew/core/php@8.4)/bin:$(brew --prefix homebrew/core/mysql-client)/bin:$PATH"
 
 # https://brew.sh/2022/02/28/homebrew-3.4.0/
 export HOMEBREW_NO_ENV_HINTS=1
