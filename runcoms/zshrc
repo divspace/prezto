@@ -113,6 +113,9 @@ alias wip="git commit -m 'wip'"
 # Homebrew...
 alias update="brew upgrade --quiet; brew cleanup --quiet; brew doctor --quiet; brew outdated --greedy --quiet"
 
+# Kubernetes...
+alias k="kubectl"
+
 # Laravel...
 alias art="php artisan"
 alias artisan="php artisan"
