@@ -161,6 +161,10 @@ stash() {
 # Composer...
 export PATH="$HOME/.composer/vendor/bin":$PATH
 
+# Helio...
+export HELIO_DIR="$HOME/.helio"
+export PATH="$HELIO_DIR":$PATH
+
 # MySQL...
 export PATH="$(brew --prefix homebrew/core/mysql-client)/bin":$PATH
 
