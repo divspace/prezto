@@ -60,9 +60,6 @@ setopt RC_EXPAND_PARAM
 bindkey "\e[1~" beginning-of-line
 bindkey "\e[4~" end-of-line
 
-# Exports...
-export PATH="$HOME/.composer/vendor/bin:$(brew --prefix homebrew/core/php@8.4)/bin:$(brew --prefix homebrew/core/mysql-client)/bin:$PATH"
-
 # https://brew.sh/2022/02/28/homebrew-3.4.0/
 export HOMEBREW_NO_ENV_HINTS=1
 
@@ -161,11 +158,20 @@ stash() {
   git stash push --include-untracked -m "wip"
 }
 
+# Composer...
+export PATH="$HOME/.composer/vendor/bin":$PATH
+
+# MySQL...
+export PATH="$(brew --prefix homebrew/core/mysql-client)/bin":$PATH
+
 # Node...
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# PHP...
+export PATH="$(brew --prefix homebrew/core/php)/bin":$PATH
 
 # Python...
 export PYENV_ROOT="$HOME/.pyenv"
